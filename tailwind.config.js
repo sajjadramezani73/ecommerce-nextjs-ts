@@ -3,7 +3,7 @@
 const plugin = require('tailwindcss/plugin');
 const colors = require("tailwindcss/colors");
 const customColors = {
-  primary: '#6A74CF',
+  primary: '#19A7CE',
   primaryLight: '#D1AAFF',
 
   caption: '#7A7A7A',
@@ -50,6 +50,9 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
       '7xl': '5rem',
+    },
+    container: {
+      center: true,
     },
     extend: {
       boxShadow: {

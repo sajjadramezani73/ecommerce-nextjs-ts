@@ -10,7 +10,7 @@ export default function Home() {
         <title>Create Next App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div>ssdfsdf</div>
+      <div className='container'>ssdfsdf</div>
     </>
   )
 }
