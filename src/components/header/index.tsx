@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import Logo from '../../../public/assets/images/logo.svg'
+import MenuAccount from "./MenuAccount/MenuAccount"
 import MenuHeader from "./MenuHeader/MenuHeader"
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
                     <Image src={Logo} alt="logo" />
                 </Link>
                 <MenuHeader />
-                <div className="f"></div>
+                <MenuAccount />
             </div>
         </div>
     )
