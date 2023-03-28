@@ -82,7 +82,7 @@
 html,
 body {
     font-family: iranyekan;
-    direction: rtl;
+    /* direction: rtl; */
     font-weight: 400;
     height: 100%;
 }
@@ -162,6 +162,32 @@ div {
 
 /********* Toastify ***********/
 
-.sb-avatar {
-    font-family: inherit !important;
+.limit-text-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.limit-text-2 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    /* word-break: break-all; */
+}
+
+.limit-text-3 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
 }

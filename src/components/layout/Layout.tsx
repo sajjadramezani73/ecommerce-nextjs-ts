@@ -5,7 +5,7 @@ const Layout: FC<any> = ({ children }) => {
     return (
         <div>
             <Header />
-            <div className="container">
+            <div className="container py-8">
                 {children}
             </div>
         </div>
