@@ -1,16 +1,12 @@
-import Head from 'next/head'
-import { useSelector } from 'react-redux';
+import Home from "../container/Home"
+import { getProducts } from "../services/queries"
+export default Home
 
-export default function Home() {
-  const { user } = useSelector((store: any) => store.user);
-  console.log(user)
-  return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <div className='container'>ssdfsdf</div>
-    </>
-  )
+export const getServerSideProps = async () => {
+  const products = await getProducts().then(res => res).catch(err => err.response)
+  return {
+    props: {
+      products: products
+    }
+  }
 }
