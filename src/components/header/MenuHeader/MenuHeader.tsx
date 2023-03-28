@@ -10,8 +10,8 @@ const MenuHeader = () => {
 
     const [menuItems, setMenuItems] = useState<IMenuItem[]>([
         { title: 'صفحه اصلی', href: '/' },
-        { title: 'مردانه', href: '/men' },
-        { title: 'زنانه', href: '/women' },
+        { title: 'مردانه', href: '/products?men' },
+        { title: 'زنانه', href: '/products?women' },
         { title: 'درباره ما', href: '/about-us' },
         { title: 'تماس با ما', href: '/contact-us' },
     ]);
