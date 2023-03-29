@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
 import ProductItem from '../components/propduct';
+import { RootState } from '../store/store';
 
 export interface IProduct {
   id: number;
@@ -21,7 +23,9 @@ export interface IProducts {
 
 const Home: FC<IProducts> = ({ products }) => {
 
-  console.log(products)
+  const { cart } = useSelector((store: RootState) => store.cart);
+
+  console.log(cart)
   return (
     <>
       <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-4'>

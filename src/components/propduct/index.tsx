@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { IProduct } from '@/src/container/Home'
-import React, { FC, useState } from 'react'
+import { useCartActions } from '@/src/store/cartSlice'
+import React, { FC, useEffect, useState } from 'react'
 
 export interface IProductProps {
     product: IProduct
@@ -8,8 +9,16 @@ export interface IProductProps {
 
 const ProductItem: FC<IProductProps> = ({ product }) => {
 
+    const { addItem, getItemCount } = useCartActions()
+
+    // useEffect(() => {
+    //     const state = getItemCount(product.id)
+    //     console.log('ss', state)
+    // }, []);
+
+
     const [count, setCount] = useState(0);
-    console.log(product)
+    // console.log(product)
     return (
         <div className='border rounded p-4 flex flex-col justify-between'>
             <div>
@@ -28,7 +37,11 @@ const ProductItem: FC<IProductProps> = ({ product }) => {
                 {count > 0 ? (
                     null
                 ) : (
-                    <button className='w-full bg-primary rounded text-sm font-bold text-white pt-1.5 pb-1'>add to cart</button>
+                    <button
+                        className='w-full bg-primary rounded text-sm font-bold text-white pt-1.5 pb-1'
+                        onClick={() => getItemCount(product.id)}>
+                        add to cart
+                    </button>
                 )}
             </div>
         </div>
