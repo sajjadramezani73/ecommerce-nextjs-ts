@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
-import { FC } from "react";
 import { useDispatch } from "react-redux";
 
 interface cartItem {
@@ -18,7 +16,7 @@ const { actions, reducer } = createSlice({
     initialState,
     reducers: {
 
-        addItem: (state, action: PayloadAction<number>) => {
+        increment: (state, action: PayloadAction<number>) => {
             const itemIndex = state.cart.findIndex(item => item.id === action.payload)
             if (itemIndex > -1) {
                 const updateItem = { ...state.cart[itemIndex] }
@@ -29,21 +27,31 @@ const { actions, reducer } = createSlice({
             }
         },
 
-        getItemCount: (state, action: PayloadAction<number>) => {
-            const ss = state.cart.find(item => item.id === action.payload)?.count || 0
-            console.log(ss)
-            // state.cart = [{ id: 5, count: 5 }]
-            return { ...state, ss: 5 }
+        decrement: (state, action: PayloadAction<number>) => {
+            const itemIndex = state.cart.findIndex(item => item.id === action.payload)
+            if (itemIndex > -1) {
+                const updateItem = { ...state.cart[itemIndex] }
+                updateItem.count = updateItem.count - 1
+                state.cart[itemIndex] = updateItem
+            }
+        },
+
+        removeFromBasket: (state, action: PayloadAction<number>) => {
+            console.log(action.payload)
+            state.cart = state.cart.filter(item => item.id !== action.payload)
         }
     }
 });
+
 
 export const useCartActions = function () {
     const dispatch = useDispatch();
 
     return {
-        addItem: (id: number) => dispatch(actions.addItem(id)),
-        getItemCount: (id: number) => dispatch(actions.getItemCount(id)),
+        increment: (id: number) => dispatch(actions.increment(id)),
+        decrement: (id: number) => dispatch(actions.decrement(id)),
+        removeFromBasket: (id: number) => dispatch(actions.removeFromBasket(id)),
     };
 };
 export default reducer;
+

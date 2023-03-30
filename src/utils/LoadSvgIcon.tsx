@@ -64,6 +64,107 @@ const LoadSvgIcon: FC<IIcon> = ({ name, size = 24, color = '#6C6C6C', weight = 1
                         />
                     </svg>
                 )
+            case "plus":
+                return (
+                    <svg
+                        width={size}
+                        height={size}
+                        viewBox="0 0 25 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12.5 6.5C12.6748 6.5 12.7812 6.63097 12.7812 6.75V17.25C12.7812 17.369 12.6748 17.5 12.5 17.5C12.3252 17.5 12.2188 17.369 12.2188 17.25V6.75C12.2188 6.63097 12.3252 6.5 12.5 6.5Z"
+                            stroke={color}
+                        />
+                        <path
+                            d="M12.8906 6.75C12.8906 6.54289 12.7157 6.375 12.5 6.375C12.2843 6.375 12.1094 6.54289 12.1094 6.75V17.25C12.1094 17.4571 12.2843 17.625 12.5 17.625C12.7157 17.625 12.8906 17.4571 12.8906 17.25V6.75Z"
+                            stroke={color}
+                        />
+                        <path
+                            d="M18.25 12C18.25 12.119 18.1435 12.25 17.9688 12.25H7.03125C6.85649 12.25 6.75 12.119 6.75 12C6.75 11.881 6.85649 11.75 7.03125 11.75H17.9688C18.1435 11.75 18.25 11.881 18.25 12Z"
+                            stroke={color}
+                        />
+                        <path
+                            d="M17.9688 12.375C18.1845 12.375 18.3594 12.2071 18.3594 12C18.3594 11.7929 18.1845 11.625 17.9688 11.625H7.03125C6.81551 11.625 6.64062 11.7929 6.64062 12C6.64062 12.2071 6.81551 12.375 7.03125 12.375H17.9688Z"
+                            stroke={color}
+                        />
+                    </svg>
+                );
+
+            case "trash":
+                return (
+                    <svg
+                        width={size}
+                        height={size}
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M1.83337 5.5H20.1667"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M18.1867 5.69238L17.2792 18.4616C17.2501 18.9265 17.0437 19.3625 16.7026 19.6797C16.3615 19.997 15.9117 20.1712 15.4459 20.1666H6.55423C6.08955 20.1676 5.64141 19.9942 5.29841 19.6807C4.95749 19.3628 4.75091 18.9267 4.7209 18.4616L3.81335 5.69238"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M11 8.8916V17.1416"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M13.75 9.78027V16.1969"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M8.25 9.78027V16.1969"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M9.16671 1.83301H12.8334C13.3185 1.83661 13.7827 2.03091 14.1257 2.37395C14.4688 2.71699 14.6631 3.18122 14.6667 3.66634V5.49967H7.33337V3.66634C7.33697 3.18122 7.5313 2.71699 7.87434 2.37395C8.21738 2.03091 8.68159 1.83661 9.16671 1.83301V1.83301Z"
+                            stroke={color}
+                            strokeWidth={weight}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
+                );
+
+            case "minus":
+                return (
+                    <svg
+                        width={size}
+                        height={size}
+                        viewBox="0 0 13 3"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12.2061 1.75C12.2061 1.87451 12.098 2 11.934 2L1.12517 2C0.961157 2 0.853113 1.87451 0.853113 1.75C0.853113 1.62549 0.961157 1.5 1.12517 1.5L11.934 1.5C12.098 1.5 12.2061 1.62549 12.2061 1.75Z"
+                            stroke={color}
+                        />
+                        <path
+                            d="M11.9343 2.125C12.1475 2.125 12.3203 1.95711 12.3203 1.75C12.3203 1.54289 12.1475 1.375 11.9343 1.375L1.12546 1.375C0.912262 1.375 0.73943 1.54289 0.73943 1.75C0.73943 1.95711 0.912262 2.125 1.12546 2.125L11.9343 2.125Z"
+                            stroke={color}
+                        />
+                    </svg>
+                );
             // case 'lock':
             //     return (
             //         <svg width={size} height={size} viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
