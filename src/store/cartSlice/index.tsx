@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
 
 interface cartItem {
     id: number
@@ -37,20 +38,26 @@ const { actions, reducer } = createSlice({
         },
 
         removeFromBasket: (state, action: PayloadAction<number>) => {
-            console.log(action.payload)
             state.cart = state.cart.filter(item => item.id !== action.payload)
         }
     }
 });
 
 
-export const useCartActions = function () {
+export const useCartActions = function (productId?: number) {
     const dispatch = useDispatch();
+    const { cart } = useSelector((store: RootState) => store.cart)
+
+    const count = cart.find(item => item.id === productId)?.count || 0
+
+    const cartQty = cart.reduce((count, item) => item.count + count, 0)
 
     return {
         increment: (id: number) => dispatch(actions.increment(id)),
         decrement: (id: number) => dispatch(actions.decrement(id)),
         removeFromBasket: (id: number) => dispatch(actions.removeFromBasket(id)),
+        count,
+        cartQty,
     };
 };
 export default reducer;
