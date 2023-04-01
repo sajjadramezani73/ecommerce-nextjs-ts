@@ -82,7 +82,7 @@
 html,
 body {
     font-family: iranyekan;
-    /* direction: rtl; */
+    direction: rtl;
     font-weight: 400;
     height: 100%;
 }
