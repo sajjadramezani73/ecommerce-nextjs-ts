@@ -7,10 +7,11 @@ interface cartItem {
     count: number
 }
 interface cartProps {
-    cart: cartItem[]
+    cart: cartItem[],
+    showCart: boolean
 }
 
-const initialState: cartProps = { cart: [] };
+const initialState: cartProps = { cart: [], showCart: false };
 
 const { actions, reducer } = createSlice({
     name: 'cart',
@@ -39,6 +40,14 @@ const { actions, reducer } = createSlice({
 
         removeFromBasket: (state, action: PayloadAction<number>) => {
             state.cart = state.cart.filter(item => item.id !== action.payload)
+        },
+
+        openCart: (state) => {
+            state.showCart = true
+        },
+
+        closeCart: (state) => {
+            state.showCart = false
         }
     }
 });
@@ -58,6 +67,8 @@ export const useCartActions = function (productId?: number) {
         removeFromBasket: (id: number) => dispatch(actions.removeFromBasket(id)),
         count,
         cartQty,
+        openCart: () => dispatch(actions.openCart()),
+        closeCart: () => dispatch(actions.closeCart())
     };
 };
 export default reducer;

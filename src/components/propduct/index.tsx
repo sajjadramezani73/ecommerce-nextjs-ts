@@ -11,7 +11,7 @@ export interface IProductProps {
 
 const ProductItem: FC<IProductProps> = ({ product }) => {
 
-    const { increment, decrement, removeFromBasket, count, cartQty } = useCartActions(product.id)
+    const { increment, decrement, removeFromBasket, count } = useCartActions(product.id)
 
     return (
         <div className='border rounded p-4 flex flex-col justify-between'>

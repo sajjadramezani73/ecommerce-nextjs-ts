@@ -24,7 +24,7 @@ export interface IProducts {
 
 const Home: FC<IProducts> = ({ products }) => {
 
-  const { cart } = useSelector((store: RootState) => store.cart);
+  const { cart, showCart } = useSelector((store: RootState) => store.cart);
 
   const [productList, setProductList] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ const Home: FC<IProducts> = ({ products }) => {
     }, 3000);
   }, []);
 
-  console.log(cart)
+  console.log('openCart', showCart, cart)
   return (
     <>
       <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-4'>
