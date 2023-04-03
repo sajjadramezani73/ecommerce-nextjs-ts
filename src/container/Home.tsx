@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import ProductItem from '../components/propduct';
-import ProductItemShimmer from '../components/propduct/ProductShimmer';
+import VerticalProduct from '../components/propduct/verticalProduct/VerticalProduct';
+import VerticalProductShimmer from '../components/propduct/verticalProduct/VerticalProductShimmer';
 import { RootState } from '../store/store';
 
 export interface IProduct {
@@ -11,11 +11,6 @@ export interface IProduct {
   description: string;
   category: string;
   image: string;
-  rating: IRating;
-}
-interface IRating {
-  rate: number;
-  count: number;
 }
 
 export interface IProducts {
@@ -41,10 +36,10 @@ const Home: FC<IProducts> = ({ products }) => {
     <>
       <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-4'>
         {loading ? (
-          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => <ProductItemShimmer key={item} />)
+          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => <VerticalProductShimmer key={item} />)
         ) : (
           productList?.map(item => {
-            return <ProductItem key={item.id} product={item} />
+            return <VerticalProduct key={item.id} product={item} />
           })
         )}
       </div>
