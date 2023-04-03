@@ -1,11 +1,12 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 import Cookies from "js-cookie";
 import { baseUrl } from '../constant/index'
+
 const service = axios.create()
 service.defaults.baseURL = baseUrl
 // service.defaults.timeout = 15000;
 service.interceptors.request.use(
-    (config) => {
+    (config: any) => {
         const token = Cookies.get("token");
         config.headers = {
             'Accept': 'application/json',
