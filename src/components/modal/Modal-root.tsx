@@ -1,6 +1,16 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 const ModalRoot = ({ children, show, onClick }: any) => {
+
+    useEffect(() => {
+        show == true
+            ? (document.querySelector("body")!.style.overflow = "hidden")
+            : (document.querySelector("body")!.style.overflow = "");
+        return () => {
+            document.querySelector("body")!.style.overflow = "";
+        };
+    }, [show]);
 
     return createPortal((
         <div
