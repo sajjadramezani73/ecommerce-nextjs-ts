@@ -1,5 +1,5 @@
 
-const ProductItemShimmer = () => {
+const VerticalProductShimmer = () => {
 
     return (
         <div className='border rounded p-4 flex flex-col justify-between'>
@@ -19,4 +19,4 @@ const ProductItemShimmer = () => {
     )
 }
 
-export default ProductItemShimmer
+export default VerticalProductShimmer

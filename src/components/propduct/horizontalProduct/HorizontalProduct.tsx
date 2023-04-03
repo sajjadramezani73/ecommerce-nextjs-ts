@@ -3,33 +3,30 @@ import { IProduct } from '@/src/container/Home'
 import useNumberSeprator from '@/src/hook/useNumberSeprator'
 import { useCartActions } from '@/src/store/cartSlice'
 import LoadSvgIcon from '@/src/utils/LoadSvgIcon'
-import React, { FC } from 'react'
+import { FC } from 'react'
 
-export interface IProductProps {
+interface IProductProps {
     product: IProduct
 }
 
-const ProductItem: FC<IProductProps> = ({ product }) => {
+const HorizontalProduct: FC<IProductProps> = ({ product }) => {
 
     const { increment, decrement, removeFromBasket, count } = useCartActions(product.id)
 
     return (
-        <div className='border rounded p-4 flex flex-col justify-between'>
-            <div>
+        <div className='flex'>
+            <div className="w-[100px] min-w-[100px] h-[100px]">
                 <img
-                    src={product?.image}
-                    alt={product?.title}
-                    className="aspect-[3/4]"
+                    src={product.image}
+                    alt={product.title}
+                    className='w-full h-full object-fill'
                 />
-                <p className='limit-text-2 h-11 overflow-hidden mt-4 text-sm font-bold text-titr'>{product?.title}</p>
             </div>
-            <div className="flex items-center">
-                <p className='ml-1 text-sm text-caption'>قیمت:</p>
-                <p className='text-base text-captionDark'>{useNumberSeprator(product?.price)}</p>
-            </div>
-            <div className="mt-4">
-                {count > 0 ? (
-                    <div className="border border-primary rounded flex justify-between items-stretch">
+            <div className="flex-grow pt-2 pr-4">
+                <p className='text-sm font-bold text-titr limit-text-1'>{product.title}</p>
+                <p className='text-xs text-caption mt-2'>{product.category}</p>
+                <div className="flex justify-between items-center mt-2">
+                    <div className="w-1/2 border border-primary rounded flex justify-between items-stretch">
                         <span
                             className='border-l border-primary w-10 flex justify-center items-center cursor-pointer'
                             onClick={() => increment(product.id)}>
@@ -49,16 +46,11 @@ const ProductItem: FC<IProductProps> = ({ product }) => {
                             )}
                         </div>
                     </div>
-                ) : (
-                    <button
-                        className='w-full bg-primary rounded text-sm font-bold text-white pt-1.5 pb-1'
-                        onClick={() => increment(product.id)}>
-                        افزودن به سبد خرید
-                    </button>
-                )}
+                    <p className='text-sm text-caption'>{useNumberSeprator(product.price)} تومان</p>
+                </div>
             </div>
         </div>
     )
 }
 
-export default ProductItem
+export default HorizontalProduct
