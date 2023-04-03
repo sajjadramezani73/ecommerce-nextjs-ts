@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Createee Next App</title>
+        <title>ecommerce nextjs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Provider store={store}>
