@@ -1,8 +1,6 @@
 import { FC, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import VerticalProduct from '../components/propduct/verticalProduct/VerticalProduct';
 import VerticalProductShimmer from '../components/propduct/verticalProduct/VerticalProductShimmer';
-import { RootState } from '../store/store';
 
 export interface IProduct {
   id: number;
@@ -19,8 +17,6 @@ export interface IProducts {
 
 const Home: FC<IProducts> = ({ products }) => {
 
-  const { cart, showCart } = useSelector((store: RootState) => store.cart);
-
   const [productList, setProductList] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,7 +27,6 @@ const Home: FC<IProducts> = ({ products }) => {
     }, 3000);
   }, []);
 
-  console.log('openCart', showCart, cart)
   return (
     <>
       <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-4'>
