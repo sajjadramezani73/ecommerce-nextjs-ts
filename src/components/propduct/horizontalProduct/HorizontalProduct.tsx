@@ -25,8 +25,8 @@ const HorizontalProduct: FC<IProductProps> = ({ product }) => {
             <div className="flex-grow pt-2 pr-4">
                 <p className='text-sm font-bold text-titr limit-text-1'>{product.title}</p>
                 <p className='text-xs text-caption mt-2'>{product.category}</p>
-                <div className="flex justify-between items-center mt-2">
-                    <div className="w-1/2 border border-primary rounded flex justify-between items-stretch">
+                <div className="flex flex-col-reverse md:flex-row justify-between items-center mt-2">
+                    <div className="w-full md:w-1/2 border border-primary rounded flex justify-between items-stretch">
                         <span
                             className='border-l border-primary w-10 flex justify-center items-center cursor-pointer'
                             onClick={() => increment(product.id)}>
@@ -46,7 +46,7 @@ const HorizontalProduct: FC<IProductProps> = ({ product }) => {
                             )}
                         </div>
                     </div>
-                    <p className='text-sm text-caption'>{useNumberSeprator(product.price)} تومان</p>
+                    <p className='text-sm text-caption mb-1.5 md:mb-0'>{useNumberSeprator(product.price)} تومان</p>
                 </div>
             </div>
         </div>

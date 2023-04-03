@@ -18,7 +18,7 @@ const CartModal = () => {
     return (
         <>
             {showCart && <ModalRoot show={showCart} onClick={() => closeCart()} >
-                <div className={`bg-white h-full w-4/5 min-w-[450px] max-w-[450px]  duration-300 sidebar
+                <div className={`bg-white h-full min-w-[320px] max-w-[320px] md:min-w-[450px] md:max-w-[450px]  duration-300 sidebar
                 ${showCart ? 'active' : ''}`}
                 >
                     <div className="h-full flex flex-col justify-between rtl">

@@ -17,7 +17,7 @@ const MenuHeader = () => {
     ]);
 
     return (
-        <nav className="flex">
+        <nav className="hidden md:flex">
             {menuItems.map(item => (
                 <Link href={item.href} key={item.href}>
                     <p className="px-4 py-2 rounded-full text-xs font-bold text-titr hover:bg-primary/10 duration-300">
